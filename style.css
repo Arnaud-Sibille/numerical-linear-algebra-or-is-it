@@ -1,0 +1,73 @@
+/* --- RESET --- */
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+input,
+button,
+text-area {
+	font: inherit;
+	color: inherit;
+	background-color: inherit;
+}
+
+/* --- VARIABLES --- */
+
+:root {
+	--FF: monospace;
+	--COLOR: rgb(214, 214, 124);
+	--BG-COLOR: #160940;
+	--BORDER: 1px solid var(--COLOR);
+}
+
+/* --- UTILITY --- */
+
+html {
+	font-family: var(--FF);
+	color: var(--COLOR);
+	background-color: var(--BG-COLOR);
+}
+
+body {
+	padding: 0 3em;
+}
+
+h1 {
+	text-align: center;
+	padding: 1em;
+}
+
+/* --- Specific --- */
+
+.equation {
+	display: flex;
+	align-items: center;
+}
+
+.matrix {
+	display: inline-flex;
+	border: var(--BORDER);
+	margin: 1em;
+	padding: 0.2em;
+}
+
+.vector {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.polynomial {
+	padding: 0.3em;
+}
