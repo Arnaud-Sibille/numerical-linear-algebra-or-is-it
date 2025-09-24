@@ -35,7 +35,16 @@ export class MatrixPolynomial extends MatrixBase {
         return new MatrixPolynomial(resVectorLst);
     }
 
-    getOpposite() {
-        return this.mulPol(Polynomial.fromNumber(-1));
+    mulVector(vec) {
+        if (this.n !== vec.length) {
+            throw new Error("Wrong dimensions for matrix vector multiplication.");
+        }
+        let resVector = this.vectorClass.get0Vector(this.m);
+        for (let i = 0; i < this.n; i++) {
+            resVector = this.vectorClass.add(resVector, this.vectorLst[i].mulPol(vec.getComp(i)));
+        }
+
+        return resVector;
     }
+
 }

@@ -3,7 +3,7 @@ import { VectorBase } from "./vector_base.js";
 export class Vector extends VectorBase {
     constructor(componentLst) {
         componentLst.forEach((comp) => {
-            if (!(typeof comp !== 'number')) {
+            if (typeof comp !== 'number') {
                 throw new Error("must instanciate with numbers");
             }
         });
@@ -17,7 +17,7 @@ export class Vector extends VectorBase {
         for (const comp of this.compLst) {
             const compEl = document.createElement("div");
             compEl.classList.add("component");
-            compEl.textContent = comp.toString();
+            compEl.textContent = comp.toFixed(4);
             el.appendChild(compEl);
         }
 
@@ -64,13 +64,13 @@ export class Vector extends VectorBase {
         let res = 0;
 
         for (let i = 0; i < vec1.length; i++) {
-            res += (vec1.getComp(i) + vec2.getComp(i));
+            res += (vec1.getComp(i) * vec2.getComp(i));
         }
-
+        
         return res;
     }
 
     get euclideanNorm() {
-        return Math.sqrt(Vector.mul(this, this))
+        return Math.sqrt(Vector.mul(this, this));
     }
 }

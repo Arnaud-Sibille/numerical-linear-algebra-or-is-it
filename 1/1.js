@@ -1,45 +1,45 @@
-import { Matrix } from "../js/matrix.js"
+import { MatrixPolynomial } from "../js/matrix_polynomial.js"
 
-let baseMatrix = Matrix.getStandardMatrix(4, 4);
+let baseMatrix = MatrixPolynomial.getStandardMatrix(4, 4);
 
 const transfoLst = [
-    [Matrix.fromNumLists(
+    [MatrixPolynomial.fromNumLists(
         [2, 0, 0, 0],
         [0, 1, 0, 0],
         [0, 0, 1, 0],
         [0, 0, 0, 1],
     ), 'right'],
-    [Matrix.fromNumLists(
+    [MatrixPolynomial.fromNumLists(
         [1, 0, 0,   0],
         [0, 1, 0,   0],
         [0, 0, 0.5, 0],
         [0, 0, 0,   1],
     ), 'left'],
-    [Matrix.fromNumLists(
+    [MatrixPolynomial.fromNumLists(
         [1, 0, 1, 0],
         [0, 1, 0, 0],
         [0, 0, 1, 0],
         [0, 0, 0, 1],
     ), 'left'],
-    [Matrix.fromNumLists(
+    [MatrixPolynomial.fromNumLists(
         [0, 0, 0, 1],
         [0, 1, 0, 0],
         [0, 0, 1, 0],
         [1, 0, 0, 0],
     ), 'right'],
-    [Matrix.fromNumLists(
+    [MatrixPolynomial.fromNumLists(
         [1, 0,  0,  0],
         [-1, 1, -1, -1],
         [0, 0,  1,  0],
         [0, 0,  0,  1],
     ), 'left'],
-    [Matrix.fromNumLists(
+    [MatrixPolynomial.fromNumLists(
         [1, 0, 0, 0],
         [0, 1, 0, 0],
         [0, 0, 1, 0],
         [0, 0, 1, 0],
     ), 'right'],
-    [Matrix.fromNumLists(
+    [MatrixPolynomial.fromNumLists(
         [0, 1, 0, 0],
         [0, 0, 1, 0],
         [0, 0, 0, 1],
@@ -71,11 +71,11 @@ transfoLst.forEach(([transfo, position], index) => {
     if (position == 'left') {
         equationEl.prepend(mulOperatorEl);
         equationEl.prepend(transfoEl);
-        baseMatrix = Matrix.mul(transfo, baseMatrix);
+        baseMatrix = MatrixPolynomial.mul(transfo, baseMatrix);
     } else {
         equationEl.appendChild(mulOperatorEl);
         equationEl.appendChild(transfoEl);
-        baseMatrix = Matrix.mul(baseMatrix, transfo);
+        baseMatrix = MatrixPolynomial.mul(baseMatrix, transfo);
     }
 
     equationEl.appendChild(equalOperatorEl);
